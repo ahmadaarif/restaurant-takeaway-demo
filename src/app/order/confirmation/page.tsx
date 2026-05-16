@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Clock, MapPin, Phone, ChefHat, Truck, ShoppingBag } from "lucide-react";
@@ -24,6 +24,14 @@ interface OrderSnapshot {
 }
 
 export default function ConfirmationPage() {
+  return (
+    <Suspense fallback={<main className="flex-1 bg-cream pt-32" />}>
+      <ConfirmationContent />
+    </Suspense>
+  );
+}
+
+function ConfirmationContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("id");
   const [order, setOrder] = useState<OrderSnapshot | null>(null);
