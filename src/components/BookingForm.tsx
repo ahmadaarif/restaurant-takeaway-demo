@@ -45,7 +45,7 @@ const PARTY_SIZES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 const schema = z.object({
   date: z.string().min(1, "Please choose a date"),
   time: z.string().min(1, "Please pick a time"),
-  partySize: z.coerce.number().min(1).max(20),
+  partySize: z.number().min(1).max(20),
   name: z.string().min(2, "Please enter your name"),
   phone: z
     .string()

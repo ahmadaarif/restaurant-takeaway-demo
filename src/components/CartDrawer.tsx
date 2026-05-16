@@ -32,13 +32,13 @@ export default function CartDrawer() {
             <p className="text-sm text-ink-muted/70 mt-1 mb-6">
               Browse our menu and add something delicious
             </p>
-            <Button
-              asChild
+            <Link
+              href="/menu"
               onClick={closeCart}
-              className="bg-maroon text-cream hover:bg-maroon-dark"
+              className="inline-flex items-center justify-center bg-maroon text-cream hover:bg-maroon-dark px-5 py-2.5 rounded-md text-sm font-medium transition-colors"
             >
-              <Link href="/menu">View Menu</Link>
-            </Button>
+              View Menu
+            </Link>
           </div>
         ) : (
           <>
@@ -111,13 +111,13 @@ export default function CartDrawer() {
                 </p>
               )}
 
-              <Button
-                asChild
-                className="w-full bg-maroon text-cream hover:bg-maroon-dark font-semibold py-3"
+              <Link
+                href="/order"
                 onClick={closeCart}
+                className="w-full inline-flex items-center justify-center bg-maroon text-cream hover:bg-maroon-dark font-semibold py-3 rounded-md transition-colors"
               >
-                <Link href="/order">Checkout →</Link>
-              </Button>
+                Checkout →
+              </Link>
             </div>
           </>
         )}
